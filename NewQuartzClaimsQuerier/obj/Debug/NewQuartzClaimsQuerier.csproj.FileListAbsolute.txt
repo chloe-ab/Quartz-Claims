@@ -35,3 +35,6 @@ C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzC
 C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\ExcelNumberFormat.xml
 C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\Quartz.dll
+C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\Quartz.pdb
+C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\Quartz.xml

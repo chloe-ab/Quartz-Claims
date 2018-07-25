@@ -13,55 +13,75 @@ namespace NewQuartzClaimsQuerier
     {
         static void Main()
         {
-            //note that paths can be relative, don't have to be absolute
-            string initialDownloadFolder = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ZipDownloads\";  //startpath
+            //Jul 24 Scheduler stuff:
+            //https://www.infoworld.com/article/3078781/application-development/how-to-work-with-quartz-net-in-c.html
+            //http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html
+            //quartz documentation: https://www.quartz-scheduler.net/documentation/quartz-2.x/tutorial/using-quartz.html
 
-            //the path to the directory to be archived:
-            string formattedDateTime = FileOperations.GetFileDownload(initialDownloadFolder);
+            //2 ways to start the scheduler:
+            //either use a windows service to start your scheduler. or If you are using an ASP.Net web application, you can take advantage of the Application_Start event of the 
+            //Global.asax file and then make a call to JobScheduler.Start() method 
 
-            string zipFileName = "Quartz_Claims_50k.shp.zip";
+            //windows task scheduler is probably more reliable than ASP.NET
+            //can use either windows task scheduler or windows service
+            //task scheduler is the simplest method. as long as it works for project, use it.
 
-            //the path to the archive that is to be extracted:
-            string zipPath = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ZipDownloads\" + formattedDateTime + zipFileName;  //actual file name at the end
-
-            //the path to the directory in which to place the extracted files:
-            string extractPath = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ExtractedFiles\" + formattedDateTime + "Extracted-Files"; //need a unique folder with the date and time stamp as well
-
-            //redundant method? simply include method contents right here?
-            FileOperations.UnzipFile(zipPath, extractPath);
+            //Scheduled tasks using Windows Task Scheduler and .Net console application:
 
 
-            string dbfFileName = "Quartz_Claims_50k.dbf"; 
-            string dbfPath = extractPath;
+            JobScheduler.Start();
+
+
+
+            ////note that paths can be relative, don't have to be absolute
+            //string initialDownloadFolder = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ZipDownloads\";  //startpath
+
+            ////the path to the directory to be archived:
+            //string formattedDateTime = FileOperations.GetFileDownload(initialDownloadFolder);
+
+            //string zipFileName = "Quartz_Claims_50k.shp.zip";
+
+            ////the path to the archive that is to be extracted:
+            //string zipPath = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ZipDownloads\" + formattedDateTime + zipFileName;  //actual file name at the end
+
+            ////the path to the directory in which to place the extracted files:
+            //string extractPath = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ExtractedFiles\" + formattedDateTime + "Extracted-Files"; //need a unique folder with the date and time stamp as well
+
+            ////redundant method? simply include method contents right here?
+            //FileOperations.UnzipFile(zipPath, extractPath);
+
+
+            //string dbfFileName = "Quartz_Claims_50k.dbf"; 
+            //string dbfPath = extractPath;
 
                    
-            //the dbf file from the extracted files:
-            string dbfFile = extractPath + @"\" + dbfFileName;
+            ////the dbf file from the extracted files:
+            //string dbfFile = extractPath + @"\" + dbfFileName;
 
-            Console.WriteLine("\n THE DBF FILE PATH IS:   \n" + dbfFile);
+            //Console.WriteLine("\n THE DBF FILE PATH IS:   \n" + dbfFile);
             
-            string query = "SELECT * FROM " + dbfFile;
-            Console.WriteLine("query is: " + query);       
+            //string query = "SELECT * FROM " + dbfFile;
+            //Console.WriteLine("query is: " + query);       
 
-            DataTable fullDataTable = FileOperations.GetDataTableFromDbf(dbfFile);
+            //DataTable fullDataTable = FileOperations.GetDataTableFromDbf(dbfFile);
             
 
-            string excelPath = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ExcelWorkbooks\";
+            //string excelPath = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ExcelWorkbooks\";
 
-            //Create a DataTable with only the relevant data:
-            DataTable newClaimsTable = DataSorter.GetNewClaimsTable(fullDataTable);
+            ////Create a DataTable with only the relevant data:
+            //DataTable newClaimsTable = DataSorter.GetNewClaimsTable(fullDataTable, 7);
 
-            Console.WriteLine("Number of new claims is: " + newClaimsTable.Rows.Count);
-            Console.ReadLine();
-            //Create the new worksheet with the selected data:
-            ExcelWriter.WriteExcelFile("New", excelPath, newClaimsTable);  
+            //Console.WriteLine("Number of new claims is: " + newClaimsTable.Rows.Count);
+            //Console.ReadLine();
+            ////Create the new worksheet with the selected data:
+            //ExcelWriter.WriteExcelFile("New", excelPath, newClaimsTable);  
 
 
-            DataTable recentExpiredClaimsTable = DataSorter.GetPastExpiredClaimsTable(fullDataTable);
-            ExcelWriter.WriteExcelFile("RecentlyExpired", excelPath, recentExpiredClaimsTable);
+            //DataTable recentExpiredClaimsTable = DataSorter.GetPastExpiredClaimsTable(fullDataTable);
+            //ExcelWriter.WriteExcelFile("RecentlyExpired", excelPath, recentExpiredClaimsTable);
 
-            DataTable upcomingExpiredClaimsTable = DataSorter.GetUpcomingExpiredClaimsTable(fullDataTable);
-            ExcelWriter.WriteExcelFile("UpcomingExpiring", excelPath, upcomingExpiredClaimsTable);
+            //DataTable upcomingExpiredClaimsTable = DataSorter.GetUpcomingExpiredClaimsTable(fullDataTable);
+            //ExcelWriter.WriteExcelFile("UpcomingExpiring", excelPath, upcomingExpiredClaimsTable);
         }
     }
 }
