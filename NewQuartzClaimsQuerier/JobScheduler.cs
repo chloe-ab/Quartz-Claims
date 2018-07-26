@@ -16,7 +16,7 @@ namespace NewQuartzClaimsQuerier
             ISchedulerFactory schedulerFactory = new StdSchedulerFactory();
 
             //get a scheduler:
-            IScheduler scheduler = (IScheduler)schedulerFactory.GetScheduler(); //added the cast
+            IScheduler scheduler = schedulerFactory.GetScheduler().Result; //added the result
             scheduler.Start();
 
             //define the job and tie it to Job class
@@ -28,7 +28,7 @@ namespace NewQuartzClaimsQuerier
                 //my custom cron expression:  (cron is best suited, but other options to cron expression are: WithCalendarIntervalSchedule, WithDailyTimeIntervalSchedule, WithSimpleSchedule
                 //.WithCronSchedule("0 0 8 ? * 2 *")  //0 seconds, 0 minutes, 8 a.m., no specific day of month, all months, Monday, all years
                  //cron expression JUST FOR TESTING:
-                .WithCronSchedule("0 51 11 ? * 4")  //0 seconds, 0 minutes, noon, no specific day of month, all months, Wednesday
+                .WithCronSchedule("0 00 00 ? * 5")  //0 seconds, 0 minutes, midnight, no specific day of month, all months, Thurs
                 .StartAt(DateTime.UtcNow)
                 .WithPriority(1)
                 .Build();
@@ -44,6 +44,10 @@ namespace NewQuartzClaimsQuerier
 
             //tell quartz to schedule the job using my trigger
             scheduler.ScheduleJob(job, trigger);
+
+            Console.WriteLine("test");
+            Console.ReadLine();
+
 
         }
     }

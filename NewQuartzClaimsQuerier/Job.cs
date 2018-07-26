@@ -13,25 +13,28 @@ namespace NewQuartzClaimsQuerier
     {          
        public void Execute(IJobExecutionContext context)
         {
+            Console.WriteLine("job beginning execution");
+            Console.ReadLine();
+
             //the job to be performed:
             //-----------------------------------
 
-            //note that paths can be relative, don't have to be absolute
-            string initialDownloadFolder = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ZipDownloads\";  //startpath
+            //note that paths can be relative or absolute
+            string initialDownloadFolder = @"ZipDownloads\";  //startpath
 
             //the path to the directory to be archived:
-            string formattedDateTime = FileOperations.GetFileDownload(initialDownloadFolder);
+            string formattedDateTime = FileFetcher.GetFileDownload(initialDownloadFolder);
 
             string zipFileName = "Quartz_Claims_50k.shp.zip";
 
             //the path to the archive that is to be extracted:
-            string zipPath = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ZipDownloads\" + formattedDateTime + zipFileName;  //actual file name at the end
+            string zipPath = @"ZipDownloads\" + formattedDateTime + zipFileName;  //actual file name at the end
 
             //the path to the directory in which to place the extracted files:
-            string extractPath = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ExtractedFiles\" + formattedDateTime + "Extracted-Files"; //need a unique folder with the date and time stamp as well
+            string extractPath = @"ExtractedFiles\" + formattedDateTime + "Extracted-Files"; //need a unique folder with the date and time stamp as well
 
             //redundant method? simply include method contents right here?
-            FileOperations.UnzipFile(zipPath, extractPath);
+            FileFetcher.UnzipFile(zipPath, extractPath);
 
 
             string dbfFileName = "Quartz_Claims_50k.dbf";
@@ -46,19 +49,19 @@ namespace NewQuartzClaimsQuerier
             string query = "SELECT * FROM " + dbfFile;
             Console.WriteLine("query is: " + query);
 
-            DataTable fullDataTable = FileOperations.GetDataTableFromDbf(dbfFile);
+            DataTable fullDataTable = FileFetcher.GetDataTableFromDbf(dbfFile);
 
 
-            string excelPath = @"C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ExcelWorkbooks\";
+            string excelPath = @"ExcelWorkbooks\";
 
             //Create a DataTable with only the relevant data:
             DataTable newClaimsTable = DataSorter.GetNewClaimsTable(fullDataTable, 7);
 
             Console.WriteLine("Number of new claims is: " + newClaimsTable.Rows.Count);
             Console.ReadLine();
+
             //Create the new worksheet with the selected data:
             ExcelWriter.WriteExcelFile("New", excelPath, newClaimsTable);
-
 
             DataTable recentExpiredClaimsTable = DataSorter.GetPastExpiredClaimsTable(fullDataTable);
             ExcelWriter.WriteExcelFile("RecentlyExpired", excelPath, recentExpiredClaimsTable);
@@ -66,12 +69,13 @@ namespace NewQuartzClaimsQuerier
             DataTable upcomingExpiredClaimsTable = DataSorter.GetUpcomingExpiredClaimsTable(fullDataTable);
             ExcelWriter.WriteExcelFile("UpcomingExpiring", excelPath, upcomingExpiredClaimsTable);
 
+
             using (StreamWriter streamWriter = new StreamWriter(@"Logs\Log.txt", true))
             {
                 streamWriter.WriteLine(DateTime.Now.ToString());
             }
 
-            Console.WriteLine("Job is executing");
+            Console.WriteLine("Job has executed");
             Console.ReadLine();
         }
 

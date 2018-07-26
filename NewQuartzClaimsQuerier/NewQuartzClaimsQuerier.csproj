@@ -125,7 +125,7 @@
   <ItemGroup>
     <Compile Include="DataSorter.cs" />
     <Compile Include="ExcelWriter.cs" />
-    <Compile Include="FileOperations.cs" />
+    <Compile Include="FileFetcher.cs" />
     <Compile Include="Job.cs" />
     <Compile Include="JobScheduler.cs" />
     <Compile Include="Program.cs" />
