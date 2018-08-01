@@ -1,10 +1,6 @@
 ﻿using Quartz;
 using Quartz.Impl;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewQuartzClaimsQuerier
 {
@@ -34,7 +30,7 @@ namespace NewQuartzClaimsQuerier
                 //my custom cron expression:  (cron is best suited, but other options to cron expression are: WithCalendarIntervalSchedule, WithDailyTimeIntervalSchedule, WithSimpleSchedule
                 //.WithCronSchedule("0 0 8 ? * 2 *")  //0 seconds, 0 minutes, 8 a.m., no specific day of month, all months, Monday, all years
                  //cron expression JUST FOR TESTING:
-                .WithCronSchedule("0 55 00 ? * 5")  //0 seconds, 0 minutes, midnight, no specific day of month, all months, Thurs
+                .WithCronSchedule("0 38 22 ? * 2")  //0 seconds, 0 minutes, midnight, no specific day of month, all months, Sat                                                                          
                 .StartAt(DateTime.UtcNow)
                 .WithPriority(1)
                 .Build();
@@ -48,15 +44,15 @@ namespace NewQuartzClaimsQuerier
             //  .RepeatForever())
             //.Build();
 
-            scheduler.Start();
+            //scheduler.Start();
 
             //tell quartz to schedule the job using my trigger
             scheduler.ScheduleJob(job, trigger);
             //ADDED: DONT KNOW IF THIS SHOULD BE ABOVE OR BELOW:
-            //scheduler.Start();
+            scheduler.Start();
 
-            Console.WriteLine("test");
-            Console.ReadLine();
+            //Console.WriteLine("test");
+            //Console.ReadLine();
 
         }
     }

@@ -50,6 +50,9 @@
     <Reference Include="NDbfReader, Version=2.1.1.0, Culture=neutral, PublicKeyToken=421d1ecd09787b1d, processorArchitecture=MSIL">
       <HintPath>..\packages\NDbfReader.2.1.1\lib\net45\NDbfReader.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Quartz, Version=3.0.6.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Quartz.3.0.6\lib\net452\Quartz.dll</HintPath>
     </Reference>
@@ -123,20 +126,32 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClaimsSorter.cs" />
+    <Compile Include="NewClaimsSorter.cs" />
+    <Compile Include="PastExpiredClaimsSorter.cs" />
+    <Compile Include="SortedClaimsTable.cs" />
     <Compile Include="DataSorter.cs" />
+    <Compile Include="EmailSender.cs" />
     <Compile Include="ExcelWriter.cs" />
     <Compile Include="FileFetcher.cs" />
     <Compile Include="Job.cs" />
     <Compile Include="JobScheduler.cs" />
+    <Compile Include="Processor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableType.cs" />
+    <Compile Include="UpcomingExpiringClaimsSorter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="resources\emailSettings\settings.json" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

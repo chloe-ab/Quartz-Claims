@@ -10,7 +10,18 @@ namespace NewQuartzClaimsQuerier
 {
     class DataSorter  
     {
-        public static DataTable GetNewClaimsTable(DataTable fullTable, int daysInPastToCheckForNewClaims = 30)  //default is 30
+        //public static SortedClaimsTable Sort()
+        //{
+
+
+        //    SortedClaimsTable table = new SortedClaimsTable(TableType.NEW_CLAIMS_TABLE, daysInPastToCheckForNewClaims, newClaimsTable);
+
+        //    Console.WriteLine("\nNumber of new claims staked in last " + Convert.ToString(daysInPastToCheckForNewClaims) + " days is: " + newClaimsTable.Rows.Count);
+        //    return table;
+        //}
+
+
+        public static SortedClaimsTable GetNewClaimsTable(DataTable fullTable, int daysInPastToCheckForNewClaims = 30)  //default is 30
         {
             //Create a DataColumn object for the column I want to filter with:
             DataColumn stakeDate = fullTable.Columns["STAKE_DATE"];
@@ -41,13 +52,16 @@ namespace NewQuartzClaimsQuerier
                     }
                 }
             }
+            SortedClaimsTable table = new SortedClaimsTable(TableType.NEW_CLAIMS_TABLE, daysInPastToCheckForNewClaims, newClaimsTable);
             Console.WriteLine("\nNumber of new claims staked in last " + Convert.ToString(daysInPastToCheckForNewClaims) + " days is: " + newClaimsTable.Rows.Count);
-            Console.ReadLine();
-            return newClaimsTable;
+            return table;
         }
 
-        public static DataTable GetPastExpiredClaimsTable(DataTable fullTable, int daysInPast = 30)
+        public static SortedClaimsTable GetPastExpiredClaimsTable(DataTable fullTable, int daysInPastToCheckForExpiredClaims = 30)
         {
+            //sorted claims tables
+            //needs local string name belonging to claim table
+
             //Create a DataColumn object for the column I want to filter with:
             DataColumn expiryDate = fullTable.Columns["EXPIRY_DAT"];
 
@@ -66,7 +80,7 @@ namespace NewQuartzClaimsQuerier
                         DateTime newDT = DateTime.Parse(nullableExpDate);
                         string finalDT = newDT.ToString("yyyyMMdd");   //deal with case where it's not null but not in the right format either?
 
-                        if (Convert.ToInt32(finalDT) >= Convert.ToInt32(DateTime.Now.AddDays(-daysInPast).ToString("yyyyMMdd")) && Convert.ToInt32(finalDT) <= Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")))
+                        if (Convert.ToInt32(finalDT) >= Convert.ToInt32(DateTime.Now.AddDays(-daysInPastToCheckForExpiredClaims).ToString("yyyyMMdd")) && Convert.ToInt32(finalDT) <= Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")))
                         {
                             //include row in the filtered datatable
                             expiredClaimsTable.ImportRow(row);
@@ -76,12 +90,13 @@ namespace NewQuartzClaimsQuerier
                     }
                 }
             }
-            Console.WriteLine("\nNumber of claims that expired in last " + Convert.ToString(daysInPast) + " days is: " + Convert.ToString(expiredClaimsTable.Rows.Count));
-            Console.ReadLine();
-            return expiredClaimsTable;      
+            SortedClaimsTable table = new SortedClaimsTable(TableType.EXPIRED_CLAIMS_TABLE, daysInPastToCheckForExpiredClaims, expiredClaimsTable);
+
+            Console.WriteLine("\nNumber of claims that expired in last " + Convert.ToString(daysInPastToCheckForExpiredClaims) + " days is: " + Convert.ToString(expiredClaimsTable.Rows.Count));
+            return table;
         }
 
-        public static DataTable GetUpcomingExpiredClaimsTable(DataTable fullTable, int daysInFutureToCheckForExpiry = 30)
+        public static SortedClaimsTable GetUpcomingExpiringClaimsTable(DataTable fullTable, int daysInFutureToCheckForExpiry = 30)
         {
             //Create a DataColumn object for the column I want to filter with:
             DataColumn expiryDate = fullTable.Columns["EXPIRY_DAT"];
@@ -109,9 +124,10 @@ namespace NewQuartzClaimsQuerier
                     }
                 }
             }
+            SortedClaimsTable table = new SortedClaimsTable(TableType.UPCOMING_EXPIRING_CLAIMS_TABLE, daysInFutureToCheckForExpiry, upcomingExpiringClaimsTable);
+
             Console.WriteLine("\nNumber of claims that will expire in next " + Convert.ToString(daysInFutureToCheckForExpiry) + " days is: " + Convert.ToString(upcomingExpiringClaimsTable.Rows.Count.ToString()));
-            Console.ReadLine();
-            return upcomingExpiringClaimsTable;
+            return table;
         }
     }
 }

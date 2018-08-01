@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data; 
-using System.Linq;
-using System.Net; 
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Data;
+using System.IO;
 
 namespace NewQuartzClaimsQuerier
 {
@@ -13,60 +9,31 @@ namespace NewQuartzClaimsQuerier
     {
         static void Main()
         {
+            //string excelPath = Directory.GetCurrentDirectory();
+            //DataTable fullDataTable = new DataTable();
 
-            JobScheduler.Start();
-            //----------
+            //var sortedClaimsTables = new List<SortedClaimsTable>();
+            //sortedClaimsTables.Add(DataSorter.GetNewClaimsTable(fullDataTable, 14));
+            ////sortedClaimsTables.Add(DataSorter.GetPastExpiredClaimsTable(fullDataTable, 90));
+            //sortedClaimsTables.Add(DataSorter.GetUpcomingExpiringClaimsTable(fullDataTable, 90));
+            //sortedClaimsTables.Add(DataSorter.GetUpcomingExpiringClaimsTable(fullDataTable, 180));
+            ////now update ExcelWriter so that all files are in one workbook:
+            //Console.WriteLine(sortedClaimsTables.Count.ToString());
+            //EmailSender.SendEmail(ExcelWriter.WriteExcelFile(excelPath, sortedClaimsTables));
 
-            ////note that paths can be relative or absolute
-            //string initialDownloadFolder = @"ZipDownloads\";  //startpath
+            //Console.WriteLine("stop here");
+            //Console.ReadLine();
+            //-------------------------------------------------------^delete the above
 
-            ////the path to the directory to be archived:
-            //string formattedDateTime = FileFetcher.GetFileDownload(initialDownloadFolder);
+            Processor.Run();
 
-            //string zipFileName = "Quartz_Claims_50k.shp.zip";
-
-            ////the path to the archive that is to be extracted:
-            //string zipPath = @"ZipDownloads\" + formattedDateTime + zipFileName;  //actual file name at the end
-
-            ////the path to the directory in which to place the extracted files:
-            //string extractPath = @"ExtractedFiles\" + formattedDateTime + "Extracted-Files"; //need a unique folder with the date and time stamp as well
-
-            ////redundant method? simply include method contents right here?
-            //FileFetcher.UnzipFile(zipPath, extractPath);
-
-
-            //string dbfFileName = "Quartz_Claims_50k.dbf";
-            //string dbfPath = extractPath;
-
-
-            ////the dbf file from the extracted files:
-            //string dbfFile = extractPath + @"\" + dbfFileName;
-
-            //Console.WriteLine("\n THE DBF FILE PATH IS:   \n" + dbfFile);
-
-            //string query = "SELECT * FROM " + dbfFile;
-            //Console.WriteLine("query is: " + query);
-
-            //DataTable fullDataTable = FileFetcher.GetDataTableFromDbf(dbfFile);
-
-
-            //string excelPath = @"ExcelWorkbooks\";
-
-            ////Create a DataTable with only the relevant data:
-            //DataTable newClaimsTable = DataSorter.GetNewClaimsTable(fullDataTable, 7);
-
-            //Console.WriteLine("Number of new claims is: " + newClaimsTable.Rows.Count);
+            //string initialDownloadFolder = @".\.\.\..\ZipDownloads\";  //startpath
+            //Console.WriteLine(Directory.GetFiles(initialDownloadFolder));
             //Console.ReadLine();
 
-            ////Create the new worksheet with the selected data:
-            //ExcelWriter.WriteExcelFile("New", excelPath, newClaimsTable);
-
-            //DataTable recentExpiredClaimsTable = DataSorter.GetPastExpiredClaimsTable(fullDataTable);
-            //ExcelWriter.WriteExcelFile("RecentlyExpired", excelPath, recentExpiredClaimsTable);
-
-            //DataTable upcomingExpiredClaimsTable = DataSorter.GetUpcomingExpiredClaimsTable(fullDataTable);
-            //ExcelWriter.WriteExcelFile("UpcomingExpiring", excelPath, upcomingExpiredClaimsTable);
-
+            JobScheduler.Start();
+            Console.ReadLine();
+            //
 
             //Jul 24 Scheduler stuff:
             //https://www.infoworld.com/article/3078781/application-development/how-to-work-with-quartz-net-in-c.html
@@ -82,9 +49,6 @@ namespace NewQuartzClaimsQuerier
             //task scheduler is the simplest method. as long as it works for project, use it.
 
             //Scheduled tasks using Windows Task Scheduler and .Net console application:
-
-
-
         }
     }
 }

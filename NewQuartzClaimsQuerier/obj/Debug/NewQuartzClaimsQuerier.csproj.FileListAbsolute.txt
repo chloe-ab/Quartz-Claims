@@ -1,4 +1,3 @@
-C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\obj\Debug\NewQuartzClaimsQuerier.csprojResolveAssemblyReference.cache
 C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\obj\Debug\NewQuartzClaimsQuerier.csproj.CoreCompileInputs.cache
 C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\NewQuartzClaimsQuerier.exe.config
 C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\NewQuartzClaimsQuerier.exe
@@ -38,3 +37,6 @@ C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzC
 C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\Quartz.dll
 C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\Quartz.pdb
 C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\Quartz.xml
+C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\NewQuartzClaimsQuerier\obj\Debug\NewQuartzClaimsQuerier.csprojResolveAssemblyReference.cache
