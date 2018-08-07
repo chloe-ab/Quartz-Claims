@@ -8,6 +8,7 @@ namespace NewQuartzClaimsQuerier
 {
     class Processor
     {
+        //public static DataTable dt = new DataTable();// = new DataTable;
         public static void Run()
         {
 
@@ -50,39 +51,23 @@ namespace NewQuartzClaimsQuerier
             //string excelPath = @"./../ExcelWorkbooks/";
             string excelPath = Directory.GetCurrentDirectory();
 
-            //Create a DataTable with only the relevant data:
-            //DataTable newClaimsTable = DataSorter.GetNewClaimsTable(fullDataTable, 7);
-
-            ////Console.WriteLine("Number of new claims is: " + newClaimsTable.Rows.Count);
-            ////Console.ReadLine();
-
-            ////Create the new worksheet with the selected data:
-            //ExcelWriter.WriteExcelFile("New", excelPath, newClaimsTable);
-
-            //DataTable recentExpiredClaimsTable = DataSorter.GetPastExpiredClaimsTable(fullDataTable);
-            //ExcelWriter.WriteExcelFile("RecentlyExpired", excelPath, recentExpiredClaimsTable);
-
-            ////for last workbook: using to test new emailsender
-            //DataTable upcomingExpiredClaimsTable = DataSorter.GetUpcomingExpiredClaimsTable(fullDataTable);
-            //XLWorkbook wb = ExcelWriter.WriteExcelFile("UpcomingExpiring", excelPath, upcomingExpiredClaimsTable);
-            //EmailSender.SendEmail("sample string", wb);
-
-
-            var sortedClaimsTables = new List<SortedClaimsTable>();
-            sortedClaimsTables.Add(DataSorter.GetNewClaimsTable(fullDataTable, 14));
-            //sortedClaimsTables.Add(DataSorter.GetPastExpiredClaimsTable(fullDataTable, 90));
-            sortedClaimsTables.Add(DataSorter.GetUpcomingExpiringClaimsTable(fullDataTable, 90));
-            sortedClaimsTables.Add(DataSorter.GetUpcomingExpiringClaimsTable(fullDataTable, 180));
+            var filteredClaimsTables = new List<FilteredClaimsTable>();
+            filteredClaimsTables.Add(DataFilterer.GetNewClaimsTable(fullDataTable)); //default is 30 which is what they want for now
+                                                                                     //filteredClaimsTables.Add(DataFilterer.GetPastExpiredClaimsTable(fullDataTable, 90));
+            filteredClaimsTables.Add(DataFilterer.GetUpcomingExpiringClaimsTable(fullDataTable)); //default is 30 which is what they want for now
+            filteredClaimsTables.Add(DataFilterer.GetUpcomingExpiringClaimsTable(fullDataTable, 90));
 
             var claimsTableNames = new List<string>();
             //could also make this list a property in ExcelWriter?
-            foreach (SortedClaimsTable table in sortedClaimsTables)
+            foreach (FilteredClaimsTable table in filteredClaimsTables)
             {
                 claimsTableNames.Add(table.GetDisplayName(true));
+
             }
 
-            EmailSender.SendEmail(ExcelWriter.WriteExcelFile(excelPath, sortedClaimsTables), claimsTableNames);
+            EmailSender.SendEmail(ExcelWriter.WriteExcelFile(excelPath, filteredClaimsTables), claimsTableNames);
         }
+
 
         //public void Demo ()
         //{
@@ -91,5 +76,58 @@ namespace NewQuartzClaimsQuerier
         //    DataTable pastExpiredClaimesSortedTable = DataSorter.sort(new PastExpiredClaimsSorter(dt, 45));
         //    DataTable upcomingExpiredClaimsSortedTable = DataSorter.sort(new UpcomingExpiringClaimsSorter(dt, 70));
         //}
+
+
+
+
+
+
+
+        //AddData(dt);       
+
     }
+    //    private static void AddData(DataTable dt)
+    //    {
+    //    dt.Columns.Add("CustLName", typeof(String));
+    //    dt.Columns.Add("item", typeof(String));
+    //    DataRow row;
+    //    DataRow row2;
+    //    DataRow row3;
+    //        //for (int i = 0; i < 10; i++)
+    //        //{
+    //        //    row = dt.NewRow();
+    //        //    row["CustLName"] = i;
+    //        //    row["item"] = "item " + i.ToString();
+    //        //    dt.Rows.Add(row);
+    //        //}
+    //        row = dt.NewRow();
+    //        row["CustLName"] = "2thisISTest";
+    //        row["item"] = "2itemTEST";
+    //        dt.Rows.Add(row);
+    //        row2 = dt.NewRow();
+    //        row["CustLName"] = "1comesfirst";
+    //        row["item"] = "1firstTEST";
+    //        dt.Rows.Add(row2);
+    //        row3 = dt.NewRow();
+    //        row["CustLName"] = "3";
+    //        row["item"] = "3";
+    //        dt.Rows.Add(row3);
+    //        //now try with data view:
+
+    //        // Create DataView
+    //        DataView view = new DataView(dt);
+
+    //        // Sort by State and ZipCode column in descending order
+    //        view.Sort = "item";
+    //        DataTable newDt = view.ToTable();
+
+    //    string excelPath = Directory.GetCurrentDirectory();
+    //    var filteredClaimsTables = new List<FilteredClaimsTable>();
+    //    var ft = new FilteredClaimsTable(TableType.NEW_CLAIMS_TABLE, 30, newDt);
+    //    filteredClaimsTables.Add(ft); // TEEEEEEEST
+    //    var claimsTableNames = new List<string>();
+    //    claimsTableNames.Add("testtable");
+    //    EmailSender.SendEmail(ExcelWriter.WriteExcelFileTest(excelPath, filteredClaimsTables), claimsTableNames);
+    //}
+
 }

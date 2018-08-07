@@ -126,11 +126,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClaimsSorter.cs" />
-    <Compile Include="NewClaimsSorter.cs" />
-    <Compile Include="PastExpiredClaimsSorter.cs" />
-    <Compile Include="SortedClaimsTable.cs" />
     <Compile Include="DataSorter.cs" />
+    <Compile Include="NewClaimsSorter.cs" />
+    <Compile Include="FilteredClaimsTable.cs" />
+    <Compile Include="DataFilterer.cs" />
     <Compile Include="EmailSender.cs" />
     <Compile Include="ExcelWriter.cs" />
     <Compile Include="FileFetcher.cs" />
@@ -140,7 +139,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableType.cs" />
-    <Compile Include="UpcomingExpiringClaimsSorter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

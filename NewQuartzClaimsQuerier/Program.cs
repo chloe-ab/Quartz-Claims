@@ -12,14 +12,14 @@ namespace NewQuartzClaimsQuerier
             //string excelPath = Directory.GetCurrentDirectory();
             //DataTable fullDataTable = new DataTable();
 
-            //var sortedClaimsTables = new List<SortedClaimsTable>();
-            //sortedClaimsTables.Add(DataSorter.GetNewClaimsTable(fullDataTable, 14));
-            ////sortedClaimsTables.Add(DataSorter.GetPastExpiredClaimsTable(fullDataTable, 90));
-            //sortedClaimsTables.Add(DataSorter.GetUpcomingExpiringClaimsTable(fullDataTable, 90));
-            //sortedClaimsTables.Add(DataSorter.GetUpcomingExpiringClaimsTable(fullDataTable, 180));
+            //var filteredClaimsTables = new List<FilteredClaimsTable>();
+            //filteredClaimsTables.Add(DataFilterer.GetNewClaimsTable(fullDataTable, 14));
+            ////filteredClaimsTables.Add(DataFilterer.GetPastExpiredClaimsTable(fullDataTable, 90));
+            //filteredClaimsTables.Add(DataFilterer.GetUpcomingExpiringClaimsTable(fullDataTable, 90));
+            //filteredClaimsTables.Add(DataFilterer.GetUpcomingExpiringClaimsTable(fullDataTable, 180));
             ////now update ExcelWriter so that all files are in one workbook:
-            //Console.WriteLine(sortedClaimsTables.Count.ToString());
-            //EmailSender.SendEmail(ExcelWriter.WriteExcelFile(excelPath, sortedClaimsTables));
+            //Console.WriteLine(filteredClaimsTables.Count.ToString());
+            //EmailSender.SendEmail(ExcelWriter.WriteExcelFile(excelPath, filteredClaimsTables));
 
             //Console.WriteLine("stop here");
             //Console.ReadLine();
@@ -31,8 +31,8 @@ namespace NewQuartzClaimsQuerier
             //Console.WriteLine(Directory.GetFiles(initialDownloadFolder));
             //Console.ReadLine();
 
-            JobScheduler.Start();
-            Console.ReadLine();
+            //JobScheduler.Start();
+            //Console.ReadLine();
             //
 
             //Jul 24 Scheduler stuff:
