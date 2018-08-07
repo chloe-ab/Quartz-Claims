@@ -25,15 +25,24 @@ namespace NewQuartzClaimsQuerier
             //Console.ReadLine();
             //-------------------------------------------------------^delete the above
 
-            Processor.Run();
+
 
             //string initialDownloadFolder = @".\.\.\..\ZipDownloads\";  //startpath
             //Console.WriteLine(Directory.GetFiles(initialDownloadFolder));
             //Console.ReadLine();
 
-            //JobScheduler.Start();
-            //Console.ReadLine();
+
+            //Processor.Run();
+            //instead of processor, changing back to jobscheduler
+            JobScheduler.Start();
+            Console.ReadLine();
             //
+
+
+
+
+
+
 
             //Jul 24 Scheduler stuff:
             //https://www.infoworld.com/article/3078781/application-development/how-to-work-with-quartz-net-in-c.html

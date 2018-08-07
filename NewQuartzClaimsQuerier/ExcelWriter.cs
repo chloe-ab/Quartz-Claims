@@ -66,12 +66,12 @@ namespace NewQuartzClaimsQuerier
             string sortingDateColumn = table.TableType.DefiningDateColumn;
 
             string combinedSortingColumns = String.Join(", ", sortingDateColumn, TableType.LABEL);
-            Console.WriteLine("combined sorting columns: " + combinedSortingColumns);
-            Console.ReadLine();
+            //Console.WriteLine("combined sorting columns: " + combinedSortingColumns);
+            //Console.ReadLine();
 
             view.Sort = combinedSortingColumns;  
-            Console.WriteLine("view.sort is: " + view.Sort);
-            Console.ReadLine();
+            //Console.WriteLine("view.sort is: " + view.Sort);
+            //Console.ReadLine();
 
             //table.DataTable = view.ToTable();  //SET table.DataTable AT THE END OF METHOD INSTEAD ////////////////////////////////////////////
             table.DataTable = view.ToTable();

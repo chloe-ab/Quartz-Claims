@@ -17,7 +17,7 @@ namespace NewQuartzClaimsQuerier
 
         public static void SendEmail(XLWorkbook claimsWorkbookToSend, List<string> fullClaimsTableNames)
         {
-            Console.WriteLine("pre email");
+            //Console.WriteLine("pre email");
             Dictionary<string, string> emailSettings = GetEmailSettings();
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient(emailSettings["smtpClientName"]);
