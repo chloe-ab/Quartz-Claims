@@ -10,8 +10,12 @@ namespace NewQuartzClaimsQuerier
         {
             //the job to be performed:
             //Console.WriteLine("job beginning execution");
-            Processor.Run();
-            await Console.Out.WriteLineAsync("job completed");
+            while (true)
+            {
+                Processor.Run();
+                await Console.Out.WriteLineAsync("job completed");
+            }
+
         }
     }
 }
