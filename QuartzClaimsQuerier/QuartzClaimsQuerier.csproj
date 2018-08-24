@@ -176,6 +176,8 @@
     <None Include="NewQuartzClaimsQuerier_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <EmbeddedResource Include="resources\emailSettings\settings.json" />
+    <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy.pubxml" />
     <None Include="Properties\webjob-publish-settings.json" />
   </ItemGroup>
   <ItemGroup>

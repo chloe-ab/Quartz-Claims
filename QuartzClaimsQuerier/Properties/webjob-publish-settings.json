@@ -1,5 +1,7 @@
 ﻿{
   "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
-  "webJobName": "QuartzClaimsQuerier",
-  "runMode": "Continuous"
+  "webJobName": "QuartzClaimsQuerierScheduled",
+  "runMode": "OnDemand",
+  "schedule": "0 25 16 ? * *"
+
 }

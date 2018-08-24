@@ -3,6 +3,9 @@
   "WebJobs": [
     {
       "filePath": "../QuartzClaimsQuerier/QuartzClaimsQuerier.csproj"
+    },
+    {
+      "filePath": "../QuartzClaimsQuerier/QuartzClaimsQuerier.csproj"
     }
   ]
 }
