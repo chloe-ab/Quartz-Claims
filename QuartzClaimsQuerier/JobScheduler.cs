@@ -30,7 +30,7 @@ namespace NewQuartzClaimsQuerier
                 //my custom cron expression:  (cron is best suited, but other options to cron expression are: WithCalendarIntervalSchedule, WithDailyTimeIntervalSchedule, WithSimpleSchedule
                 //.WithCronSchedule("0 0 8 ? * 2 *")  //0 seconds, 0 minutes, 8 a.m., no specific day of month, all months, Monday, all years
                  //cron expression JUST FOR TESTING:
-                .WithCronSchedule("0 25 13 ? * 6")  //0 seconds, 0 minutes, midnight, no specific day of month, all months, (day of week)                                                                      
+                .WithCronSchedule("0 25 14 ? * *")  //0 seconds, 0 minutes, midnight, no specific day of month, all months, (day of week)                                                                      
                 .StartAt(DateTime.UtcNow)
                 .WithPriority(1)
                 .Build();
