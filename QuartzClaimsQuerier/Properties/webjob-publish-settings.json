@@ -2,6 +2,6 @@
   "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
   "webJobName": "QuartzClaimsQuerierWebJob",
   "runMode": "OnDemand",
-  "schedule": "0 13 * ? * *"
+  "schedule": "0 2 * * * ?" //changing from Quartz Cron to Azure Cron notation...
 }
 
