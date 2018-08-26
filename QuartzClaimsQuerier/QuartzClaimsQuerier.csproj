@@ -180,7 +180,9 @@
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy.pubxml" />
-    <None Include="Properties\webjob-publish-settings.json" />
+    <None Include="Properties\webjob-publish-settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
