@@ -78,6 +78,9 @@
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="NCrontab, Version=3.2.20120.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ncrontab.3.3.0\lib\net35\NCrontab.dll</HintPath>
+    </Reference>
     <Reference Include="NDbfReader, Version=2.1.1.0, Culture=neutral, PublicKeyToken=421d1ecd09787b1d, processorArchitecture=MSIL">
       <HintPath>..\packages\NDbfReader.2.1.1\lib\net45\NDbfReader.dll</HintPath>
     </Reference>
@@ -176,13 +179,15 @@
     <None Include="NewQuartzClaimsQuerier_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <EmbeddedResource Include="resources\emailSettings\settings.json" />
+    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy.pubxml" />
-    <None Include="Properties\webjob-publish-settings.json">
+    <Content Include="settings.job.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
+    <None Include="Properties\webjob-publish-settings.json" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
