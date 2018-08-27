@@ -102,6 +102,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NCrontab.dll" size="22528">
+      <assemblyIdentity name="NCrontab" version="3.2.20120.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>s+Ckci47sx/8J6F1KTSDz00FyZtqvOU4X9RKzs9Fii4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NDbfReader.dll" size="29184">
       <assemblyIdentity name="NDbfReader" version="2.1.1.0" publicKeyToken="421D1ECD09787B1D" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -114,14 +126,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewQuartzClaimsQuerier.exe" size="17376">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewQuartzClaimsQuerier.exe" size="16384">
       <assemblyIdentity name="NewQuartzClaimsQuerier" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mt3rnL9w9EXpoN8Y0qgUMC15/aYqhOoYZUxkol8GEno=</dsig:DigestValue>
+        <dsig:DigestValue>KF+OFG4PniTLu8uvtUYt3YE7DecgCQchPX1ZUw3rPZo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -360,6 +372,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>TJB8G+TaMeCOn0F7Kw3ouvCjlJ4qS1+b13FqW3JWBdE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="settings.job" size="38">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>csr3xaGvuF9R3oMMIgOc6zmbUTTMBEkunc1EQf2E51o=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
