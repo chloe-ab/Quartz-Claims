@@ -1,10 +1,9 @@
 ﻿{
   "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
-  //"webJobName": "QuartzClaimsQuerier",
-  "webJobName": "MyTimer",
-  "startTime": null,
-  "endTime": null,
-  "jobRecurrenceFrequency": null,
-  "interval": null,
+  "webJobName": "QuartzClaimsQuerierOnSchedule",
+  //"startTime": null,
+  //"endTime": null,
+  //"jobRecurrenceFrequency": null,
+  //"interval": null,
   "runMode": "OnDemand"
 }
