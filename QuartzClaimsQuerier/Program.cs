@@ -31,11 +31,10 @@ namespace NewQuartzClaimsQuerier
             //Console.WriteLine(Directory.GetFiles(initialDownloadFolder));
             //Console.ReadLine();
 
-
-            //Processor.Run();
-            //instead of processor, changing back to jobscheduler
-            JobScheduler.Start();
-            Console.ReadLine();
+            //RUN EITHER JOBSCHEDULER *OR* PROCESSOR
+            Processor.Run();
+            //JobScheduler.Start();
+            //Console.ReadLine();
             //
 
 
