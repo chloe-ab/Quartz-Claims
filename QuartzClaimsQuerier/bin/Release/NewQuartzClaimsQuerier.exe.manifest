@@ -133,7 +133,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8FDqDZqCRhd9TTHBsE/385kOvEch4EqpS1hdUdX3zdM=</dsig:DigestValue>
+        <dsig:DigestValue>dl+HpIHwaTXcx6V4mLO2BxqT3Ymg/L7jNRl+ZXQQZnY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -374,13 +374,13 @@
       <dsig:DigestValue>TJB8G+TaMeCOn0F7Kw3ouvCjlJ4qS1+b13FqW3JWBdE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="settings.job.json" size="39">
+  <file name="settings.job" size="39">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>hDDu9ItgVM4bZJGzdt25pTWncOzrOOWU91NVMYoIqEo=</dsig:DigestValue>
+      <dsig:DigestValue>S+CcNZWb2eKdWp+9GJXSVF9PnoZKH8PVQmeBHjGmjjk=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -180,11 +180,12 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="resources\emailSettings\settings.json" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy.pubxml" />
-    <Content Include="settings.job.json">
+    <Content Include="settings.job">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\webjob-publish-settings.json" />
