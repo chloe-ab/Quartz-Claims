@@ -184,6 +184,8 @@
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %287%29.pubxml" />
+    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %288%29.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerier.pubxml" />
     <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy %282%29.pubxml" />
