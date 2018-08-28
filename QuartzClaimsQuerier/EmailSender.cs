@@ -31,6 +31,8 @@ namespace NewQuartzClaimsQuerier
 
             SmtpServer.Port = 587;
             SmtpServer.Credentials = new System.Net.NetworkCredential(emailSettings["senderAddress"], emailSettings["senderPassword"]);
+            //below line added Aug 28:
+            SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
             SmtpServer.EnableSsl = true;
 
             SmtpServer.Send(mail);
