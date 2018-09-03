@@ -126,14 +126,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewQuartzClaimsQuerier.exe" size="16384">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewQuartzClaimsQuerier.exe" size="15360">
       <assemblyIdentity name="NewQuartzClaimsQuerier" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7k5cGZQ3N0kpFVeJYX3lw7HGqKiORbGtsVTRLCmaDas=</dsig:DigestValue>
+        <dsig:DigestValue>mBNeYntyVZPQlmpZwZG1V2LbkVJNlLafGYqjQRV1qhQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -372,15 +372,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>TJB8G+TaMeCOn0F7Kw3ouvCjlJ4qS1+b13FqW3JWBdE=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="settings.job" size="38">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>kqCcRmcX4+7ixDCP+LCcvesLkpZUu/nPLbeEGvkY3Mk=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

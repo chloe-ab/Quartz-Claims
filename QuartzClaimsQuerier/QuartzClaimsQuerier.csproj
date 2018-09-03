@@ -176,29 +176,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="NewQuartzClaimsQuerier_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <EmbeddedResource Include="resources\emailSettings\settings.json" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %283%29.pubxml" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %284%29.pubxml" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %285%29.pubxml" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %286%29.pubxml" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %287%29.pubxml" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy %288%29.pubxml" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerier.pubxml" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\QuartzClaimsQuerierScheduled - Web Deploy.pubxml" />
-    <Content Include="settings.job">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Include="Properties\webjob-publish-settings.json" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>

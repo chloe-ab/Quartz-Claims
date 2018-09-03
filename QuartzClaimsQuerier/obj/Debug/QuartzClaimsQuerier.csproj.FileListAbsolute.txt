@@ -44,5 +44,4 @@ C:\Users\Chloe\source\repos\MyPersonalProjects\QuartzClaimsQuerier\QuartzClaimsQ
 C:\Users\Chloe\source\repos\MyPersonalProjects\QuartzClaimsQuerier\QuartzClaimsQuerier\obj\Debug\QuartzClaimsQuerier.csproj.CopyComplete
 C:\Users\Chloe\source\repos\MyPersonalProjects\QuartzClaimsQuerier\QuartzClaimsQuerier\obj\Debug\NewQuartzClaimsQuerier.exe
 C:\Users\Chloe\source\repos\MyPersonalProjects\QuartzClaimsQuerier\QuartzClaimsQuerier\obj\Debug\NewQuartzClaimsQuerier.pdb
-C:\Users\Chloe\source\repos\MyPersonalProjects\QuartzClaimsQuerier\QuartzClaimsQuerier\bin\Debug\settings.job
 C:\Users\Chloe\source\repos\MyPersonalProjects\QuartzClaimsQuerier\QuartzClaimsQuerier\bin\Debug\NCrontab.dll

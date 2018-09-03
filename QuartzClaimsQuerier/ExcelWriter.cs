@@ -12,9 +12,7 @@ namespace NewQuartzClaimsQuerier
     {
         //Using DocumentFormat.OpenXml and ClosedXML Nuget packages
 
-        public static string WorkbookPath;
-
-        public static XLWorkbook WriteExcelFile(string workbookFolderPath, List<FilteredClaimsTable> filteredClaimsTables, bool sortByDate = true, bool sortByLabel = true)  //the path you want to save the WorkBook to
+        public static XLWorkbook WriteExcelFile(List<FilteredClaimsTable> filteredClaimsTables, bool sortByDate = true, bool sortByLabel = true)  //the path you want to save the WorkBook to
         {
             XLWorkbook wb = new XLWorkbook();
 
@@ -45,15 +43,10 @@ namespace NewQuartzClaimsQuerier
                     }
                 }
 
-                //Console.WriteLine("just sorted by date new...");
-                //Console.ReadLine();
-
                 //SortByLabel(workSheet, table);
             }
-
-            string workbookFileName = "Filtered Claims.xlsx";
-            WorkbookPath = workbookFolderPath + " " + workbookFileName;
-            wb.SaveAs(WorkbookPath);
+         
+            //wb.SaveAs(workbookFileName);
             return wb;
         }
 
@@ -171,44 +164,44 @@ namespace NewQuartzClaimsQuerier
 
         //public FilteredClaimsTable test = new FilteredClaimsTable(TableType.NEW_CLAIMS_TABLE, 10, dt);
 
-        public static XLWorkbook WriteExcelFileTest(string workbookFolderPath, List<FilteredClaimsTable> filteredClaimsTables)  //the path you want to save the WorkBook to
-        {
+        //public static XLWorkbook WriteExcelFileTest(string workbookFolderPath, List<FilteredClaimsTable> filteredClaimsTables)  //the path you want to save the WorkBook to
+        //{
 
-            XLWorkbook wb = new XLWorkbook();
+        //    XLWorkbook wb = new XLWorkbook();
 
-            foreach (FilteredClaimsTable table in filteredClaimsTables)
-            {
-                DataTable dt = table.DataTable;
-                string wsName = table.GetDisplayName();
+        //    foreach (FilteredClaimsTable table in filteredClaimsTables)
+        //    {
+        //        DataTable dt = table.DataTable;
+        //        string wsName = table.GetDisplayName();
 
-                var workSheet = wb.Worksheets.Add(wsName);
-                //var test = dt.Rows[0][0];
+        //        var workSheet = wb.Worksheets.Add(wsName);
+        //        //var test = dt.Rows[0][0];
 
-                //set the column headers:
-                for (int j = 0; j < dt.Columns.Count; j++)
-                {
-                    string s = dt.Columns[j].ColumnName.ToString();
-                    workSheet.Cell(1, j + 1).SetValue<string>(s);
-                }
+        //        //set the column headers:
+        //        for (int j = 0; j < dt.Columns.Count; j++)
+        //        {
+        //            string s = dt.Columns[j].ColumnName.ToString();
+        //            workSheet.Cell(1, j + 1).SetValue<string>(s);
+        //        }
 
-                //insert all elements for rows after the column headers:
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    for (int j = 0; j < dt.Columns.Count; j++)
-                    {
-                        var element = dt.Rows[i][dt.Columns[j]].ToString();
-                        workSheet.Cell(i + 2, j + 1).SetValue<string>(element);
-                    }
-                }
-                workSheet.Sort(1);
-            }
+        //        //insert all elements for rows after the column headers:
+        //        for (int i = 0; i < dt.Rows.Count; i++)
+        //        {
+        //            for (int j = 0; j < dt.Columns.Count; j++)
+        //            {
+        //                var element = dt.Rows[i][dt.Columns[j]].ToString();
+        //                workSheet.Cell(i + 2, j + 1).SetValue<string>(element);
+        //            }
+        //        }
+        //        workSheet.Sort(1);
+        //    }
 
-            string workbookFileName = "Filtered Claims TEST.xlsx";
-            WorkbookPath = workbookFolderPath + " " + workbookFileName;
-            wb.SaveAs(WorkbookPath);
-            return wb;
+        //    string workbookFileName = "Filtered Claims TEST.xlsx";
+        //    WorkbookPath = workbookFolderPath + " " + workbookFileName;
+        //    wb.SaveAs(WorkbookPath);
+        //    return wb;
 
-        }
+        //}
     }
 }
 

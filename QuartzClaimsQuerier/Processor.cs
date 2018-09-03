@@ -8,48 +8,42 @@ namespace NewQuartzClaimsQuerier
 {
     class Processor
     {
-        //public static DataTable dt = new DataTable();// = new DataTable;
+        private static readonly string REMOTE_URI = "ftp://ftp.geomaticsyukon.ca/GeoYukon/Mining/Quartz_Claims_50k/";
+        private static readonly string FILE_NAME = "Quartz_Claims_50k.shp.zip";
+        private static readonly string DBF_FILE_NAME = "Quartz_Claims_50k.dbf";
+        private static readonly string ATTACHMENT_NAME = "Filtered Claims.xlsx";
+
         public static void Run()
         {
+            // Concatenate the domain with the Web resource filename:
+            string webResource = REMOTE_URI + FILE_NAME;
 
             //note that paths can be relative or absolute
-            //string initialDownloadFolder = @"C:Users\Chloe\source\repos\MyPersonalProjects\NewQuartzClaimsQuerier\ZipDownloads\";  //startpath
-            string initialDownloadFolder = Directory.GetCurrentDirectory();
+            //string initialDownloadFolder = Directory.GetCurrentDirectory();
+          
+            Tuple<string, DataTable> tuple = FileFetcher.GetFileDownload(webResource, DBF_FILE_NAME);
 
-            //the path to the directory to be archived:
-            string formattedDateTime = FileFetcher.GetFileDownload(initialDownloadFolder);
-
-            string zipFileName = "Quartz_Claims_50k.shp.zip";
+            string formattedDateTime = tuple.Item1;
+            DataTable fullDataTable = tuple.Item2;
 
             //the path to the archive that is to be extracted:
-            //string zipPath = @"./../ZipDownloads/" + formattedDateTime + zipFileName;  //actual file name at the end
-            string zipPath = Directory.GetCurrentDirectory() + formattedDateTime + zipFileName;  //actual file name at the end
+            //string zipPath = Directory.GetCurrentDirectory() + formattedDateTime + zipFileName;  //actual file name at the end
 
             //the path to the directory in which to place the extracted files:
             //string extractPath = @"./../ExtractedFiles/" + formattedDateTime + "Extracted-Files"; //need a unique folder with the date and time stamp as well
-            string extractPath = Directory.GetCurrentDirectory() + formattedDateTime + "Extracted-Files"; //need a unique folder with the date and time stamp as well
+            //string extractPath = Directory.GetCurrentDirectory() + formattedDateTime + "Extracted-Files"; //need a unique folder with the date and time stamp as well
 
-            //redundant method? simply include method contents right here?
-            FileFetcher.UnzipFile(zipPath, extractPath);
+            //FileFetcher.UnzipFile(zipPath, extractPath);
 
-
-            string dbfFileName = "Quartz_Claims_50k.dbf";
-            string dbfPath = extractPath;
-
+            //string dbfPath = extractPath;
 
             //the dbf file from the extracted files:
-            string dbfFile = extractPath + @"/" + dbfFileName;
+            //string dbfFile = extractPath + @"/" + dbfFileName;
 
-            Console.WriteLine("\n THE DBF FILE PATH IS:   \n" + dbfFile);
-
-            string query = "SELECT * FROM " + dbfFile;
-            Console.WriteLine("query is: " + query);
-
-            DataTable fullDataTable = FileFetcher.GetDataTableFromDbf(dbfFile);
-
+            //Console.WriteLine("\n THE DBF FILE PATH IS:   \n" + dbfFile);
 
             //string excelPath = @"./../ExcelWorkbooks/";
-            string excelPath = Directory.GetCurrentDirectory();
+            //string excelPath = Directory.GetCurrentDirectory();
 
             var filteredClaimsTables = new List<FilteredClaimsTable>();
             filteredClaimsTables.Add(DataFilterer.GetNewClaimsTable(fullDataTable)); //default is 30 which is what they want for now
@@ -65,7 +59,9 @@ namespace NewQuartzClaimsQuerier
 
             }
 
-            EmailSender.SendEmail(ExcelWriter.WriteExcelFile(excelPath, filteredClaimsTables), claimsTableNames);
+            string attachmentNameWithDate = DateTime.Now.ToShortDateString() + " " + ATTACHMENT_NAME;
+
+            EmailSender.SendEmail(ExcelWriter.WriteExcelFile(filteredClaimsTables), claimsTableNames, attachmentNameWithDate);
         }
     }
 }
